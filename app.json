@@ -1,0 +1,32 @@
+{
+  "pages":[
+    "pages/songlist/songlist",
+    "pages/my/my"
+    
+  ],
+  "window":{
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#DD001B",
+    "navigationBarTitleText": "网抑云音乐",
+    "navigationBarTextStyle":"white"
+  },
+
+  "tabBar": {
+    "selectedColor":"#DD001B",
+    "list": [{
+      "pagePath": "pages/songlist/songlist",
+      "text": "首页",
+      "iconPath": "/images/music.png",
+      "selectedIconPath": "/images/music2.png"
+
+    }, {
+      "pagePath": "pages/my/my",
+      "text": "我的",
+      "iconPath": "/images/my-music.png",
+      "selectedIconPath": "/images/my-music2.png"
+    }]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
