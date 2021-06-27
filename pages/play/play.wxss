@@ -1,0 +1,82 @@
+/* pages/play/play.wxss */
+#bg{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+.bg{
+    position: absolute;
+    width: 170%;
+    height: 100%;
+    opacity: .5;
+}
+.name{
+    position: relative;
+    text-align: center;
+    font-size: 50rpx;
+    color: #fff;
+    width: 100%;
+    height: 200rpx;
+    line-height: 200rpx;
+}
+/* 滑块 */
+.main{
+    position: relative;
+    width: 100%;
+    height: 850rpx;
+    /* background-color: pink; */
+}
+.musicPic{
+    width: 450rpx;
+    height: 450rpx;
+    border-radius: 50%;  
+    border: 70rpx solid #333;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    animation: playimg 20s linear infinite;
+    box-shadow: 3rpx 3rpx 10rpx black;
+    /* margin-top: 10rpx; */
+}
+@keyframes playimg{
+    0% {transform: rotate(0deg);}
+    50% {transform: rotate(180deg);}
+    100% {transform: rotate(360deg);}
+  }
+
+/* .musicPic2{
+    width: 550rpx;
+    height: 550rpx;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    animation: playimg2 20s linear infinite;
+    box-shadow:  10rpx black;
+}
+@keyframes playimg2{
+    0% {transform: rotate(0deg);}
+    50% {transform: rotate(180deg);}
+    100% {transform: rotate(360deg);}
+  } */
+  .btnbox{
+      position: fixed;
+      width: 100%;
+      height: 120rpx;
+      background-color: #c20c20;
+      bottom: 0;
+      padding: 40rpx 20rpx;
+  }
+  .btnbox image{
+      display: block;
+      width: 100rpx;
+      height: 100rpx;
+      float: left;
+      margin: 0 70rpx;
+  }

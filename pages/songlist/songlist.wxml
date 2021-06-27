@@ -1,2 +1,29 @@
 <!--pages/songlist/songlist.wxml-->
-<text>pages/songlist/songlist.wxml</text>
+<!-- 轮播图 -->
+<view>
+  <swiper class="banner" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" indicator-active-color="#c20c0c" indicator-color="#fff">
+        <block wx:for="{{background}}" wx:key="*this">
+          <swiper-item>
+            <!-- <view class="swiper-item"></view> -->
+            <image src="{{item}}"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+</view>
+<!-- 列表 -->
+<block wx:for="{{musicList}}" wx:key="*this">
+  <view class="list-wrap">
+    <view class="list-i">
+    <image src="{{item.src}}"></image>
+    </view>
+    <view class="list-c">
+      <view class="musicName">{{item.musicName}}</view>
+      <view class="name">{{item.name}}</view>
+    </view>
+    <!-- {{item.id}} 每个歌曲绑定自己的id -->
+    <view class="list-r" bindtap="jumpPlay" data-id="{{item.id}}">
+    <image src="/images/stop.png"></image>
+    </view>
+  </view>
+</block>
+

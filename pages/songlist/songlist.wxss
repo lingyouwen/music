@@ -1,1 +1,68 @@
 /* pages/songlist/songlist.wxss */
+/* 轮播图 */
+.banner{
+  height: 280rpx;
+}
+.banner image{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+/* 列表 */
+.list-wrap{
+  width: 100%;
+  height: 180rpx;
+  box-shadow: 0rpx 2rpx 1rpx #f1f1f1;
+  /* background-color: pink; */
+}
+.list-wrap view{
+  float: left;
+}
+.list-wrap .list-i{
+  width: 220rpx;
+  height: 180rpx;
+  /* background: orange; */
+
+}
+.list-wrap .list-c{
+  width: 300rpx;
+  height: 180rpx;
+  /* background: rgb(0, 174, 255); */
+}
+.list-wrap .list-r{
+  width: 180rpx;
+  height: 180rpx;
+  /* background: beige; */
+  
+}
+.list-i image{
+  display: flex;
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 23rpx;
+  margin: 15rpx 30rpx;
+}
+.list-c view{
+  width: 240rpx;
+  padding-left: 60rpx;
+  /* 文本不换行 */
+  white-space: nowrap;
+  overflow: hidden;
+  /* 文本溢出部分省略 */
+  text-overflow: ellipsis;
+}
+.list-c .musicName{
+  font-size: 30rpx;
+  line-height: 80rpx;
+  margin-top: 25rpx;
+}
+.list-c .name{
+  font-size: 26rpx;
+  color: #555;
+}
+.list-r image{
+  display: flex;
+  width: 100rpx;
+  height: 100rpx;
+  margin: 50rpx auto;
+}
