@@ -11,7 +11,27 @@ Page({
             "method":"play"
         }
     },
-
+    //播放状态，更改的方法
+    playdata(){
+        console.log(this.data.action.method);
+        var date=this.data.action.method
+        //判断
+        if(date=='play'){
+            this.setData({
+                action:{
+                    "method":"pause"
+                },
+                data:"pause"   
+            })
+        }else{
+            this.setData({
+                action:{
+                    "method":"play"
+                },
+                data:"play"
+            })
+        }
+    },
     /**
      * 生命周期函数--监听页面加载
      */
@@ -24,6 +44,7 @@ Page({
             musicId:mid
         })
     },
+   
 
     /**
      * 生命周期函数--监听页面初次渲染完成
