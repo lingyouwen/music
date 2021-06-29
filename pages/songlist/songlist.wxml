@@ -20,8 +20,9 @@
       <view class="musicName">{{item.musicName}}</view>
       <view class="name">{{item.name}}</view>
     </view>
-    <view class="list-r">
-    <image src="/images/play.png"></image>
+    <!-- {{item.id}} 每个歌曲绑定自己的id -->
+    <view class="list-r" bindtap="jumpPlay" data-id="{{item.id}}">
+    <image src="/images/stop.png"></image>
     </view>
   </view>
 </block>
