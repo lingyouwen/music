@@ -27,7 +27,7 @@
     height: 850rpx;
     /* background-color: pink; */
 }
-.musicPic{
+.imgItem image{
     width: 450rpx;
     height: 450rpx;
     border-radius: 50%;  
@@ -79,4 +79,8 @@
       height: 100rpx;
       float: left;
       margin: 0 70rpx;
+  }
+  .imgItem .clear{
+          /* 动画 播放状态  暂停*/
+    animation-play-state: paused;
   }

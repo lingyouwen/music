@@ -1,13 +1,13 @@
 <!--播放页面-->
 <view id="bg">
   <image class="bg" 
-  src="https://p2.music.126.net/KTo5oSxH3CPA5PBTeFKDyA==/109951164581432409.jpg"></image>
+  :src="{{imgUrl}}"></image>
 </view>
-<view class="name">句号</view>
+<view class="name">{{name}}</view>
 <swiper class="main">
-    <swiper-item class="item">
-        <image class="musicPic" 
-        src="https://p2.music.126.net/KTo5oSxH3CPA5PBTeFKDyA==/109951164581432409.jpg"></image>
+    <swiper-item class="item imgItem">
+        <image class="{{data=='play'?'':'clear'}}"
+        :src="{{imgUrl}}"></image>
         <!-- <image class="musicPic2" src="/images/disc.png"></image> -->
     </swiper-item>
     <swiper-item class="item">
