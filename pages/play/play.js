@@ -37,10 +37,29 @@ Page({
             })
         }
     },
+    //歌词显示和更新
+    lrcShow(){
+        //获取id
+        let mid=this.data.musicId
+        console.log(mid)
+        //src拼接
+        let src='http://music.163.com/api/song/lyric?os=pc&id='+mid+'&lv=-1&tv=-1'
+        wx.request({
+          url: src,
+          success:(res)=>{
+            //   console.log(res.data.lrc.lyric)
+              let lrcStr=res.data.lrc.lyric
+              //处理字符串
+              //1 拆分字符串 一句一句
+              //2 进行数据提出
+              //3 进行时间和文本的拆分  再进行对应
+          }
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
+    onLoad(options) {
         // 通过options获取id
         console.log(options.id)
         let mid=options.id
@@ -66,6 +85,7 @@ Page({
               })
           }
         })
+        this.lrcShow()
     },
    
 

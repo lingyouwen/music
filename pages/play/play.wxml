@@ -6,12 +6,38 @@
 <view class="name">{{name}}</view>
 <swiper class="main">
     <swiper-item class="item imgItem">
-        <image class="{{data=='play'?'':'clear'}}"
+        <image class="{{data=='pause' ? 'clear' : ''}}"
         src="{{imgUrl}}"></image>
         <!-- <image class="musicPic2" src="/images/disc.png"></image> -->
     </swiper-item>
-    <swiper-item class="item">
-    123456
+    <swiper-item class="item txtbox">
+    <!-- 滚动组件 -->
+    <scroll-view class="txt_wrap" scroll-y="false">
+        <view>歌词歌词</view>
+        <view>歌词歌词</view>
+        <view>歌词歌词</view>
+        <view>歌词歌词</view>
+        <view>歌词歌词</view>
+        <view>歌词歌词</view>
+        <view>歌词歌词</view>
+        <view>歌词歌词</view>
+        <view>歌词歌词</view>
+        <view>歌词歌词</view>
+        <view>歌词歌词</view>
+        <view>歌词歌词</view>
+        <view>歌词歌词</view>
+        <view>歌词歌词</view>
+        <view>歌词歌词</view>
+        <view>歌词歌词</view>
+        <view>歌词歌词</view>
+        <view>歌词歌词</view>
+        <view>歌词歌词</view>
+        <view>歌词歌词</view>
+        <view>歌词歌词</view>
+        <view>歌词歌词</view>
+        <view>歌词歌词</view>
+        <view>歌词歌词</view>
+    </scroll-view>
     </swiper-item>
 </swiper>
 <view class="btnbox">
