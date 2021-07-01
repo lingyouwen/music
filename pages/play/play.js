@@ -9,7 +9,12 @@ Page({
         //播放状态
         action:{
             "method":"play"
-        }
+        },
+        date:"play",
+        //歌曲名称
+        name:'',
+        //歌曲图片
+        imgUrl:''
     },
     //播放状态，更改的方法
     playdata(){
@@ -42,6 +47,24 @@ Page({
         //更改data中数据
         this.setData({
             musicId:mid
+        })
+        //页面渲染
+        //网络 请求
+        wx.request({
+          url: 'https://music.163.com/api/song/detail/?id=1359595520&ids=['+mid+']',
+          success:(e)=>{
+              console.log(e.data.songs[0].name)
+              //获取歌曲名称
+              let name=e.data.songs[0].name
+              //歌曲图片
+              console.log(e.data.songs[0].album.blurPicUrl)
+              let imgUrl=e.data.songs[0].album.blurPicUrl
+              //设置数据
+              this.setData({
+                  name:name,
+                  imgUrl:imgUrl
+              })
+          }
         })
     },
    
