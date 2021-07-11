@@ -93,8 +93,12 @@
   }
   .txt_wrap view{
       text-align: center;
-      color: #f8f8f8;
+      color: #cccccc;
       height: 48rpx;
       line-height: 48rpx;
       font-size: 32rpx;
+  }
+  .txt_wrap .color{
+      color: #fff;
+      font-size: 35rpx;
   }

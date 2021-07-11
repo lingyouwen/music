@@ -12,31 +12,10 @@
     </swiper-item>
     <swiper-item class="item txtbox">
     <!-- 滚动组件 -->
-    <scroll-view class="txt_wrap" scroll-y="false">
-        <view>歌词歌词</view>
-        <view>歌词歌词</view>
-        <view>歌词歌词</view>
-        <view>歌词歌词</view>
-        <view>歌词歌词</view>
-        <view>歌词歌词</view>
-        <view>歌词歌词</view>
-        <view>歌词歌词</view>
-        <view>歌词歌词</view>
-        <view>歌词歌词</view>
-        <view>歌词歌词</view>
-        <view>歌词歌词</view>
-        <view>歌词歌词</view>
-        <view>歌词歌词</view>
-        <view>歌词歌词</view>
-        <view>歌词歌词</view>
-        <view>歌词歌词</view>
-        <view>歌词歌词</view>
-        <view>歌词歌词</view>
-        <view>歌词歌词</view>
-        <view>歌词歌词</view>
-        <view>歌词歌词</view>
-        <view>歌词歌词</view>
-        <view>歌词歌词</view>
+    <!-- scroll-top="{{top}}" 定位滚动条位置 -->
+    <scroll-view class="txt_wrap" scroll-y="false" scroll-top="{{top}}">
+    <!-- wx:for-index="in" 当前遍历时候的下表 -->
+        <view class="{{in==index?'color':''}}" wx:for-index="in" wx:for="{{lrcList}}" wx:key="lrcList">{{item[1]}}</view>
     </scroll-view>
     </swiper-item>
 </swiper>
@@ -47,4 +26,4 @@
 </view>
 
 
-<audio action="{{action}}" src="http://music.163.com/song/media/outer/url?id={{musicId}}.mp3"></audio>
+<audio bindtimeupdate="timechange" action="{{action}}" src="http://music.163.com/song/media/outer/url?id={{musicId}}.mp3"></audio>
