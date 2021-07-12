@@ -66,3 +66,25 @@
   height: 100rpx;
   margin: 50rpx auto;
 }
+.search form {  
+  position: relative;
+  display: flex;
+  justify-content: center;
+}  
+.search input {  
+  width: 500rpx;  
+  height: 80rpx;  
+  border-radius: 80rpx;  
+  border: 2px solid #eeeeee;  
+  /* background: #F9F0DA;   */
+  transition: .3s linear;  
+  padding-left: 20rpx;
+  margin: 20rpx 0;
+}  
+.search image{
+  position: absolute;
+  top: 36rpx;
+  right: 140rpx;
+  width: 50rpx;
+  height: 50rpx;
+}

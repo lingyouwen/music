@@ -10,6 +10,13 @@
         </block>
       </swiper>
 </view>
+<!-- 搜索 -->
+<view class="search">
+        <form>
+            <input type="text" confirm-type="search" />
+            <image src="../../images/search.png"></image>
+        </form>
+</view>
 <!-- 列表 -->
 <block wx:for="{{musicList}}" wx:key="*this">
   <view class="list-wrap">
