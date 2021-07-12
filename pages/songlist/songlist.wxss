@@ -72,19 +72,20 @@
   justify-content: center;
 }  
 .search input {  
-  width: 500rpx;  
+  width: 600rpx;  
   height: 80rpx;  
   border-radius: 80rpx;  
   border: 2px solid #eeeeee;  
   /* background: #F9F0DA;   */
   transition: .3s linear;  
-  padding-left: 20rpx;
+  padding-left: 30rpx;
   margin: 20rpx 0;
 }  
 .search image{
   position: absolute;
+  z-index: 99;
   top: 36rpx;
-  right: 140rpx;
+  right: 120rpx;
   width: 50rpx;
   height: 50rpx;
 }

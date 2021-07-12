@@ -13,19 +13,19 @@
 <!-- 搜索 -->
 <view class="search">
         <form>
-            <input type="text" confirm-type="search" />
-            <image src="../../images/search.png"></image>
+            <input bindinput="keychange" type="text" confirm-type="search" />
+            <image bindtap="search" src="../../images/search.png"></image>
         </form>
 </view>
 <!-- 列表 -->
 <block wx:for="{{musicList}}" wx:key="*this">
   <view class="list-wrap">
     <view class="list-i">
-    <image src="{{item.src}}"></image>
+    <image src="{{item.album.artist.img1v1Url}}"></image>
     </view>
     <view class="list-c">
-      <view class="musicName">{{item.musicName}}</view>
-      <view class="name">{{item.name}}</view>
+      <view class="musicName">{{item.name}}</view>
+      <view class="name">{{item.artists[0].name}}</view>
     </view>
     <!-- {{item.id}} 每个歌曲绑定自己的id -->
     <view class="list-r" bindtap="jumpPlay" data-id="{{item.id}}">

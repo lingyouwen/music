@@ -9,39 +9,10 @@ Page({
         'http://p1.music.126.net/MQ3q6pcYkx6jrF3GOMgI-g==/109951166121753124.jpg?imageView&quality=89', 
         'http://p1.music.126.net/JOaT-B9TcLnDVkWtEvqVnQ==/109951166121627798.jpg?imageView&quality=89'],
         //歌曲遍历
-        musicList:[
-            //图片  歌名 人名 歌曲id
-            {
-                "src":"https://p2.music.126.net/KTo5oSxH3CPA5PBTeFKDyA==/109951164581432409.jpg",
-                "musicName":"句号",
-                "name":"G.E.M.邓紫棋",
-                "id":"1405283464"
-            },
-            {
-                "src":"https://p1.music.126.net/wldFtES1Cjnbqr5bjlqQbg==/18876415625841069.jpg",
-                "musicName":"南方姑娘",
-                "name":"赵雷",
-                "id":"202373"
-            },
-            {
-                "src":"https://p1.music.126.net/34YW1QtKxJ_3YnX9ZzKhzw==/2946691234868155.jpg",
-                "musicName":"成都",
-                "name":"赵雷",
-                "id":"436514312"
-            },
-            {
-                "src":"https://p2.music.126.net/Nze7lE61wH1bhTSXpVBvGQ==/109951163445284035.jpg",
-                "musicName":"安和桥（Cover 宋东野）",
-                "name":"宇西",
-                "id":"416892296"
-            },
-            {
-                "src":"https://p2.music.126.net/8rZiGb8K0zL75NnoVunnGg==/109951163733426036.jpg",
-                "musicName":"莫妮卡",
-                "name":"柳爽",
-                "id":"486999661"
-            },
-        ],
+        musicList:[],
+       //输入框的值
+       word:"",
+
         indicatorDots: true,
         autoplay: true,
         interval: 2000,
@@ -55,6 +26,35 @@ Page({
         let mid=event.currentTarget.dataset.id
         wx.navigateTo({
           url: '/pages/play/play?id='+mid,
+        })
+    },
+    //监听input输入框值
+    keychange(result){
+        // console.log(result)
+        //进行数据修改
+        let w=result.detail.value
+        //data数据修改
+        this.setData({
+            word:w
+        })
+    },
+    //触发搜索按钮执行方法
+   
+    search(){
+        console.log(this.data.word)
+        // 搜索思路 //拿到用户值 // 改变接口中关键字 // 网络请求// 获取json // 解析拿到data数据// 渲染数据
+        let data=this.data.word
+        let url="https://music.163.com/api/search/get?s="+data+"&type=1&limit=6";
+        // let that=this
+        wx.request({
+          url,
+          success:(result)=>{
+              console.log(result.data.result.songs)
+              let songs=result.data.result.songs
+              this.setData({
+                musicList:songs
+              })
+          }
         })
     },
 
