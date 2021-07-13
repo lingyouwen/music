@@ -23,7 +23,9 @@ Page({
         //滚动条位置
         top:0,
         //播放模式
-        mode:"loop1"
+        mode:"loop1",
+        //id列表
+        idlist:[]
     },
     //切换模式 图标更改
     changemode(){
@@ -55,12 +57,43 @@ Page({
                 }             
             })
         }else{
-
+            //调用下一曲方法
+            this.nextSong()
         }
     },
     //循环下一首方法
     nextSong(){
-
+        //去idlist列表当中进行检索
+        let id=this.data.musicId
+        let idlist=this.data.idlist
+        //下标
+        let index=-1
+        //找当前歌曲下表
+        for(let i=0;i<idlist.length;i++){
+            //判断当前歌曲是否是最后一位，如果是的则循环到第0位，不是则往后更换
+            if(id==idlist[i]){
+                index=i;
+                break
+            }
+        }
+        if(index==idlist.length-1){
+            this.setData({
+                musicId:idlist[0]
+            })
+        }else{
+            this.setData({
+                musicId:idlist[index+1]
+            })
+        }
+        //更新播放
+        this.setData({
+            action:{
+                method:"play"
+            }
+        })
+        //更新歌词和歌曲详情
+        this.musicShow()
+        this.lrcShow()
     },
     //播放状态，更改的方法
     playdata(){
@@ -146,31 +179,42 @@ Page({
      */
     onLoad(options) {
         // 通过options获取id
-        console.log(options)
+        // console.log(options.idlist)
+        let idliststr=options.idlist
+        //拆分字符串为列表
+        let idlist=idliststr.split(",")
+        // console.log(idlist)
         let mid=options.id
         //更改data中数据
         this.setData({
-            musicId:mid
+            musicId:mid,
+            idlist,
         })
+        
+        this.lrcShow()
+        this.musicShow()
+    },
+    //歌曲详情
+    musicShow(){
+        let mid=this.data.musicId
         //页面渲染
         //网络 请求
         wx.request({
-          url: 'https://music.163.com/api/song/detail/?id=1359595520&ids=['+mid+']',
-          success:(e)=>{
-            //   console.log(e.data.songs[0].name)
-              //获取歌曲名称
-              let name=e.data.songs[0].name
-              //歌曲图片
-              console.log(e.data.songs[0].album.blurPicUrl)
-              let imgUrl=e.data.songs[0].album.blurPicUrl
-              //设置数据
-              this.setData({
-                  name:name,
-                  imgUrl:imgUrl
-              })
-          }
-        })
-        this.lrcShow()
+            url: 'https://music.163.com/api/song/detail/?id=1359595520&ids=['+mid+']',
+            success:(e)=>{
+              //   console.log(e.data.songs[0].name)
+                //获取歌曲名称
+                let name=e.data.songs[0].name
+                //歌曲图片
+                console.log(e.data.songs[0].album.blurPicUrl)
+                let imgUrl=e.data.songs[0].album.blurPicUrl
+                //设置数据
+                this.setData({
+                    name:name,
+                    imgUrl:imgUrl
+                })
+            }
+          })
     },
     //播放进度触发
     timechange(result){
