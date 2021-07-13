@@ -20,10 +20,11 @@
     </swiper-item>
 </swiper>
 <view class="btnbox">
+    <image class="btnbox-img" bindtap="changemode" src="/images/{{mode=='loop1' ? 'loop1.png':'loop.png'}}"></image>
     <image src="/images/lastSong.png"></image>
     <image bindtap="playdata" src="/images/{{data=='pause' ? 'pause.png':'play.png'}}"></image>
     <image src="/images/nextSong.png"></image>
 </view>
 
 
-<audio bindtimeupdate="timechange" action="{{action}}" src="http://music.163.com/song/media/outer/url?id={{musicId}}.mp3"></audio>
+<audio bindended="changeMusic" bindtimeupdate="timechange" action="{{action}}" src="http://music.163.com/song/media/outer/url?id={{musicId}}.mp3"></audio>

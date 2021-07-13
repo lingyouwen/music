@@ -11,6 +11,7 @@ Page({
             "method":"play"
         },
         date:"play",
+    
         //歌曲名称
         name:'',
         //歌曲图片
@@ -20,7 +21,46 @@ Page({
         //当前播放歌词的下标
         idnex:-1,
         //滚动条位置
-        top:0
+        top:0,
+        //播放模式
+        mode:"loop1"
+    },
+    //切换模式 图标更改
+    changemode(){
+    if(this.data.mode=="loop1"){
+        this.setData({
+            mode:'loop'
+        })
+    }else{
+        this.setData({
+            mode:'loop1'
+        })
+    }
+
+    },
+    //当歌曲播放完毕执行
+    changeMusic(){
+        // console.log("播放完毕")
+        //判段当前模式来进行切换
+        let mode=this.data.mode
+        //loop1单曲 loop循环
+        if(mode=="loop"){
+            this.setData({
+                musicId:this.data.musicId
+            })
+            //刷新播放状态
+            this.setData({
+                action:{
+                    method:"play"
+                }             
+            })
+        }else{
+
+        }
+    },
+    //循环下一首方法
+    nextSong(){
+
     },
     //播放状态，更改的方法
     playdata(){
@@ -106,7 +146,7 @@ Page({
      */
     onLoad(options) {
         // 通过options获取id
-        // console.log(options.id)
+        console.log(options)
         let mid=options.id
         //更改data中数据
         this.setData({
@@ -140,7 +180,7 @@ Page({
         //歌词时间
         let lrcList=this.data.lrcList
         //遍历歌词二维数组
-        for(let i=0;i<lrcList.length;i++){
+        for(let i=0;i<lrcList.length-1;i++){
             //每一句歌词区间判断
             if(lrcList[i][0]<playtime&&playtime<lrcList[i+1][0]){
                 //拿到当前播放歌词下标

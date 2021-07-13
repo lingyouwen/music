@@ -1,16 +1,19 @@
 {
   "pages":[
+    
     "pages/songlist/songlist",
     "pages/my/my",
     "pages/play/play"
+    
     
   ],
   "window":{
     "enablePullDownRefresh": true,
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#DD001B",
-    "navigationBarTitleText": "网抑云音乐",
-    "navigationBarTextStyle":"white"
+    "navigationBarTitleText": "云音乐",
+    "navigationBarTextStyle":"white",
+    "backgroundColor": "#DD001B"
   },
 
   "tabBar": {

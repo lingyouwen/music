@@ -17,11 +17,12 @@
             <image bindtap="search" src="../../images/search.png"></image>
         </form>
 </view>
-<!-- 列表 -->
-<block wx:for="{{musicList}}" wx:key="*this">
+<!-- 列表 wx:for-index="i"匹配当前下表-->
+<block wx:for="{{musicList}}" wx:key="*this" wx:for-index="i">
   <view class="list-wrap">
     <view class="list-i">
-    <image src="{{item.album.artist.img1v1Url}}"></image>
+    <!-- 对应下标找到封面 -->
+    <image src="{{ImgUrl_list[i]}}"></image>
     </view>
     <view class="list-c">
       <view class="musicName">{{item.name}}</view>
@@ -32,5 +33,6 @@
     <image src="/images/stop.png"></image>
     </view>
   </view>
+
 </block>
 

@@ -12,6 +12,9 @@ Page({
         musicList:[],
        //输入框的值
        word:"",
+       //封面的url列表
+       ImgUrl_list:[],
+       Idlist:[],
 
         indicatorDots: true,
         autoplay: true,
@@ -21,11 +24,13 @@ Page({
     },
     //点击跳转播放页面
     jumpPlay(event){
-        console.log(event.currentTarget.dataset.id)
+        // console.log(event.currentTarget.dataset.id)
+        console.log(this.data.Idlist)
+        let idlist=this.data.Idlist
         //id传到另一个页面
         let mid=event.currentTarget.dataset.id
         wx.navigateTo({
-          url: '/pages/play/play?id='+mid,
+          url: '/pages/play/play?id='+mid+'&idlist='+idlist,
         })
     },
     //监听input输入框值
@@ -46,17 +51,51 @@ Page({
         let data=this.data.word
         let url="https://music.163.com/api/search/get?s="+data+"&type=1&limit=6";
         // let that=this
+        //定义储存id列表
+        let Idlist=[]
         wx.request({
           url,
           success:(result)=>{
-              console.log(result.data.result.songs)
+            //   console.log(result.data.result.songs)
               let songs=result.data.result.songs
+              //音乐存储
               this.setData({
                 musicList:songs
               })
+              //获取列表当中的id存储
+              for(let i=0;i<songs.length;i++){
+                //   console.log(songs[i].id)
+                  Idlist.push(songs[i].id)
+                  this.setData({
+                      Idlist:Idlist
+                  })
+              }
+              this.getMusicImge(Idlist,0,Idlist.length)
           }
         })
     },
+    //通过id获取封面的方法  (id数组 递归下表 结束下标)
+    getMusicImge(Idlist,i,length){
+        let ImgUrl_list=this.data.ImgUrl_list
+        let url="https://music.163.com/api/song/detail/?id=1359595520&ids=["+Idlist[i]+"]"
+        wx.request({
+          url,
+          success:(res)=>{
+            //   console.log(res.data.songs[0].album.blurPicUrl)
+            //封面
+            let img=res.data.songs[0].album.blurPicUrl
+            ImgUrl_list.push(img)
+            this.setData({
+                ImgUrl_list
+            })
+              //跳出递归条件
+              if(++i<length){
+                  this.getMusicImge(Idlist,i,length)
+              }
+          }
+        })
+    },
+
 
     /**
      * 生命周期函数--监听页面加载
@@ -97,14 +136,26 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-
+         {
+            wx.showNavigationBarLoading() //在标题栏中显示加载
+                            
+            //模拟加载
+            setTimeout(()=>
+            {
+            // complete
+            wx.hideNavigationBarLoading() //完成停止加载
+            wx.stopPullDownRefresh() //停止下拉刷新
+            },1500)      
+        }
+            
+            
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-
+        
     },
 
     /**
