@@ -61,6 +61,41 @@ Page({
             this.nextSong()
         }
     },
+    //上一首方法
+    listSong(){
+ //去idlist列表当中进行检索
+        let id=this.data.musicId
+        let idlist=this.data.idlist
+        //下标
+        let index=-1
+        //找当前歌曲下表
+        for(let i=0;i<idlist.length;i++){
+            //判断当前歌曲是否是最后一位，如果是的则循环到第0位，不是则往后更换
+            if(id==idlist[i]){
+                index=i;
+                break
+            }
+        }
+        if(index==0){
+            this.setData({
+                musicId:idlist[idlist.length-1]
+            })
+        }else{
+            this.setData({
+                musicId:idlist[index-1]
+            })
+        }
+        //更新播放
+        this.setData({
+            action:{
+                method:"play"
+            },
+            data:"play"
+        })
+        //更新歌词和歌曲详情
+        this.musicShow()
+        this.lrcShow()
+    },
     //循环下一首方法
     nextSong(){
         //去idlist列表当中进行检索
@@ -89,7 +124,8 @@ Page({
         this.setData({
             action:{
                 method:"play"
-            }
+            },
+            data:"play"
         })
         //更新歌词和歌曲详情
         this.musicShow()
