@@ -107,3 +107,27 @@
       color: #fff;
       font-size: 35rpx;
   }
+  /* 进度条 */
+  .timebox{
+      position: fixed;
+      bottom: 185rpx;
+      width: 100%;
+      height: 100rpx;
+      /* background-color: skyblue; */
+      /* padding: 0 50rpx; */
+  }
+  .timebox view,.timebox slider{
+      float: left;
+      height: 100rx;
+      line-height: 100rpx;
+  }
+  .timebox view{
+      width: 20%;
+      text-align: center;
+      color: #fff;
+  }
+  .timebox slider{
+      width: 60%;
+      margin: 0;
+      margin-top: 36rpx;
+  }

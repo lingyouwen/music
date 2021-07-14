@@ -25,7 +25,11 @@ Page({
         //播放模式
         mode:"loop1",
         //id列表
-        idlist:[]
+        idlist:[],
+        //当前播放时间
+        playtime:"",
+        //总时长
+        timelength:""
     },
     //切换模式 图标更改
     changemode(){
@@ -276,6 +280,33 @@ Page({
                 })
             }
         }
+        //进度条时间的数据更新
+
+        //总时长
+        let timelength=result.detail.duration
+        let sum_m=Math.floor(timelength/60)
+        let sum_s=Math.floor(timelength%60)
+        //个位数补齐0的操作
+        if(sum_m<10){
+            sum_m="0"+sum_m
+        }
+        if(sum_s<10){
+            sum_s="0"+sum_s
+        }
+        // close.log(sum_m+" "+sum_s)
+        let play_m=Math.floor(playtime/60)
+        let play_s=Math.floor(playtime%60)
+        if(play_m<10){
+            play_m="0"+play_m
+        }
+        if(play_s<10){
+            play_s="0"+play_s
+        }
+        //进行数据更新
+        this.setData({
+            playtime:play_m+":"+play_s,
+            timelength:sum_m+":"+sum_s
+        })
     },
    
 

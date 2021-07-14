@@ -19,6 +19,13 @@
     </scroll-view>
     </swiper-item>
 </swiper>
+<!-- 进度条 -->
+<view class="timebox">
+    <view class="play_time">{{playtime}}</view>
+    <slider block-size="12" activeColor="#DD001B"></slider>
+    <view class="end_time">{{timelength}}</view>
+</view>
+<!-- 按钮 -->
 <view class="btnbox">
     <image class="btnbox-img" bindtap="changemode" src="/images/{{mode=='loop1' ? 'loop1.png':'loop.png'}}"></image>
     <image bindtap="listSong"src="/images/lastSong.png"></image>

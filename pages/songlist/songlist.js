@@ -86,7 +86,7 @@ Page({
         wx.request({
           url,
           success:(res)=>{
-            //   console.log(res.data.songs[0].album.blurPicUrl)
+              // console.log(res.data.songs[0].album.blurPicUrl)
             //封面
             let img=res.data.songs[0].album.blurPicUrl
             ImgUrl_list.push(img)
