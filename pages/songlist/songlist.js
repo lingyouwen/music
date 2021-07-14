@@ -70,6 +70,11 @@ Page({
                       Idlist:Idlist
                   })
               }
+              //进行数组清空，防止下次搜索还是显示之前的数据
+              this.setData({
+                ImgUrl_list:[]
+              })
+              //调用找封面
               this.getMusicImge(Idlist,0,Idlist.length)
           }
         })
