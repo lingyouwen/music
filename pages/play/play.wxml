@@ -4,7 +4,11 @@
   src="{{imgUrl}}"></image>
 </view>
 <view class="name">{{name}}</view>
+<!-- 轮播页面 -->
 <swiper class="main">
+    <view class="{{playBar=='bar' ? 'bar' : 'play_bar'}}">
+        <image src="/images/player_bar.png"></image>
+    </view>
     <swiper-item class="item imgItem">
         <image class="{{data=='pause' ? 'clear' : ''}}"
         src="{{imgUrl}}"></image>

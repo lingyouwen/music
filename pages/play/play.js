@@ -11,7 +11,8 @@ Page({
             "method":"play"
         },
         date:"play",
-    
+
+        playBar:"bar",
         //歌曲名称
         name:'',
         //歌曲图片
@@ -27,9 +28,9 @@ Page({
         //id列表
         idlist:[],
         //当前播放时间
-        playtime:"",
+        playtime:"00:00",
         //总时长
-        timelength:"",
+        timelength:"00:00",
         //进度条最大值
         max:0,
         //当前播放位置
@@ -98,7 +99,8 @@ Page({
             action:{
                 method:"play"
             },
-            data:"play"
+            data:"play",
+            playBar:"bar" 
         })
         //更新歌词和歌曲详情
         this.musicShow()
@@ -133,7 +135,8 @@ Page({
             action:{
                 method:"play"
             },
-            data:"play"
+            data:"play",
+            playBar:"bar" 
         })
         //更新歌词和歌曲详情
         this.musicShow()
@@ -149,14 +152,16 @@ Page({
                 action:{
                     "method":"pause"
                 },
-                data:"pause"   
+                data:"pause",
+                playBar:"play_bar" 
             })
         }else{
             this.setData({
                 action:{
                     "method":"play"
                 },
-                data:"play"
+                data:"play",
+                playBar:"bar" 
             })
         }
     },
@@ -380,7 +385,7 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-
+        
     },
 
     /**
