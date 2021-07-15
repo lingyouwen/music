@@ -14,7 +14,10 @@ Page({
        word:"",
        //封面的url列表
        ImgUrl_list:[],
+       //歌曲id列表
        Idlist:[],
+       //歌曲数量
+       musicSum:6,
 
         indicatorDots: true,
         autoplay: true,
@@ -44,12 +47,12 @@ Page({
         })
     },
     //触发搜索按钮执行方法
-   
     search(){
         console.log(this.data.word)
         // 搜索思路 //拿到用户值 // 改变接口中关键字 // 网络请求// 获取json // 解析拿到data数据// 渲染数据
         let data=this.data.word
-        let url="https://music.163.com/api/search/get?s="+data+"&type=1&limit=6";
+        let musicSum=this.data.musicSum
+        let url="https://music.163.com/api/search/get?s="+data+"&type=1&limit="+musicSum;
         // let that=this
         //定义储存id列表
         let Idlist=[]
@@ -159,8 +162,62 @@ Page({
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function () {
+    onReachBottom() {
+      //加载更多
+      let word=this.data.word
+      //搜索
+      //判断输入框不能为空
+      if(word!=""){
+        let music_sum=this.data.musicSum 
+        //每次新增2首歌曲
+        music_sum+=6
+      this.setData({
+        musicSum:music_sum
+      })
+      let musicSum=this.data.musicSum
+      let data=this.data.word
+      let url="https://music.163.com/api/search/get?s="+data+"&type=1&limit="+musicSum;
+      let Idlist=[]
+      //增加loading效果
+      wx.showLoading({
+        title: '歌曲加载中...',
+      })
+      wx.request({
+        url,
+        success:(result)=>{
+          // console.log(123)
+          //   console.log(result.data.result.songs)
+            let songs=result.data.result.songs
+            //音乐存储
+            this.setData({
+              musicList:songs
+            })
+             //获取列表当中的id存储
+             for(let i=0;i<songs.length;i++){
+              //   console.log(songs[i].id)
+                Idlist.push(songs[i].id)
+                this.setData({
+                    Idlist:Idlist
+                })
+            }
+            //进行数组清空，防止下次搜索还是显示之前的数据
+            this.setData({
+              ImgUrl_list:[]
+            })
+            //调用找封面
+            this.getMusicImge(Idlist,0,Idlist.length) 
+        }
+      })
+      //延迟动画
+      // setTimeout(()=>{
         
+      // },1000)
+      //结束loading动画
+      wx.hideLoading()
+      
+      }else{
+        console.log("空空空")
+      }
     },
 
     /**
