@@ -29,7 +29,11 @@ Page({
         //当前播放时间
         playtime:"",
         //总时长
-        timelength:""
+        timelength:"",
+        //进度条最大值
+        max:0,
+        //当前播放位置
+        move:0
     },
     //切换模式 图标更改
     changemode(){
@@ -214,6 +218,31 @@ Page({
           }
         })
     },
+    //进度条拖动
+    sliderChange(e){
+        console.log(e.detail.value)
+        //当前拖动的值
+        let v=e.detail.value
+        //进行move修改
+        // this.setData({
+        //     move:v
+        // })
+        //修改当前时间
+        this.setData({
+            action:{
+                method:'setCurrentTime',
+                data:v
+            }
+        })
+        //更新播放状态位play
+        this.setData({
+            action:{
+                method:'play'
+                
+            }
+        })
+    },
+
     /**
      * 生命周期函数--监听页面加载
      */
@@ -305,7 +334,9 @@ Page({
         //进行数据更新
         this.setData({
             playtime:play_m+":"+play_s,
-            timelength:sum_m+":"+sum_s
+            timelength:sum_m+":"+sum_s,
+            max:timelength,
+            move:playtime
         })
     },
    

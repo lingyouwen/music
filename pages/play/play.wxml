@@ -22,7 +22,8 @@
 <!-- 进度条 -->
 <view class="timebox">
     <view class="play_time">{{playtime}}</view>
-    <slider block-size="12" activeColor="#DD001B"></slider>
+    <!-- 进度条最大值 -->
+    <slider bindchange="sliderChange" block-size="12" activeColor="#DD001B" max="{{max}}" value="{{move}}"></slider>
     <view class="end_time">{{timelength}}</view>
 </view>
 <!-- 按钮 -->
