@@ -170,7 +170,7 @@ Page({
       if(word!=""){
         let music_sum=this.data.musicSum 
         //每次新增2首歌曲
-        music_sum+=6
+        music_sum+=2
       this.setData({
         musicSum:music_sum
       })
@@ -216,7 +216,14 @@ Page({
       wx.hideLoading()
       
       }else{
-        console.log("空空空")
+        wx.showLoading({
+          title: '搜索内容为空',
+        })
+      setTimeout(()=>{
+        //结束loading动画
+        wx.hideLoading()
+       },1000)
+      
       }
     },
 

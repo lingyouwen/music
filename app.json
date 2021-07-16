@@ -3,7 +3,8 @@
     
     "pages/songlist/songlist",
     "pages/my/my",
-    "pages/play/play"
+    "pages/play/play",
+    "pages/find/find"
     
     
   ],
@@ -25,6 +26,11 @@
       "selectedIconPath": "/images/music2.png"
 
     }, {
+      "pagePath": "pages/find/find",
+      "text": "发现",
+      "iconPath": "/images/my-music.png",
+      "selectedIconPath": "/images/my-music2.png"
+    },{
       "pagePath": "pages/my/my",
       "text": "我的",
       "iconPath": "/images/my-music.png",

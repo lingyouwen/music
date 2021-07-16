@@ -13,7 +13,7 @@
 <!-- 搜索 -->
 <view class="search">
         <form>
-            <input bindinput="keychange" type="text" confirm-type="search" />
+            <input placeholder-style="font-size: 26rpx" placeholder="发现属于你的音乐" bindinput="keychange" type="text" confirm-type="search" />
             <image bindtap="search" src="../../images/search.png"></image>
         </form>
 </view>
