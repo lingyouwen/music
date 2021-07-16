@@ -8,15 +8,15 @@
     </view>
     <view class="titlebox">
         <view class="txt">热门推荐</view>
-        <view class="txt_r">更多
+        <view class="txt_r" bindtap="changeHot">更多
             <image src="/images/da.png"></image>
         </view>
     </view>
     <view class="hotlist clearfix">
-        <block wx:for="{{hotlist}}" wx:key="hotlist">
+        <block wx:for="{{hotlist}}" wx:key="id">
             <view class="hotitem">
-                <image src="/images/host.jpg"></image>
-                <text>纯音疗愈丸丨平复浮躁心绪的良药</text>
+                <image src="{{item.picUrl}}"></image>
+                <text>{{item.name}}</text>
             </view>
         </block>
     </view>
@@ -24,15 +24,15 @@
     <!-- 新歌列表 -->
     <view class="titlebox">
         <view class="txt">新歌推荐</view>
-        <view class="txt_r">更多
+        <view class="txt_r" bindtap="changeNew">更多
             <image src="/images/da.png"></image>
         </view>
     </view>
     <view class="hotlist clearfix">
-        <block wx:for="{{hotlist}}" wx:key="hotlist">
+        <block wx:for="{{newlist}}" wx:key="id">
             <view class="hotitem">
-                <image src="/images/ming.jpg"></image>
-                <text>马頔 宋冬野 赵雷 马良 陈粒 丢火车</text>
+                <image src="{{item.album.blurPicUrl}}"></image>
+                <text>{{item.album.name}}</text>
             </view>
         </block>
     </view>
