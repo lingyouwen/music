@@ -36,16 +36,14 @@ Page({
         //当前播放位置
         move:0
     },
-    //点击跳转评论页面
-    comment(event){
-        // console.log(event.currentTarget.id)
+    //点击跳转评论页面 传参id
+    comment(){
         console.log(this.data.musicId)
         let music_id=this.data.musicId
         //id传到另一个页面
-        let mid=event.currentTarget.id
-        console.log(event.currentTarget.id)
+        // let mid=event.currentTarget.id
         wx.navigateTo({
-            url: '/pages/comment/comment?id='+mid+'&idlist='+music_id,
+            url: '/pages/comment/comment?id='+music_id
           })
     },
     //切换模式 图标更改
@@ -292,7 +290,7 @@ Page({
                 //获取歌曲名称
                 let name=e.data.songs[0].name
                 //歌曲图片
-                console.log(e.data.songs[0].album.blurPicUrl)
+                // console.log(e.data.songs[0].album.blurPicUrl)
                 let imgUrl=e.data.songs[0].album.blurPicUrl
                 //设置数据
                 this.setData({

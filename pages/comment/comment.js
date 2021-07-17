@@ -6,29 +6,57 @@ Page({
      */
     data: {
         //歌曲id
-        music_id:""
+        musicID:'',
+        //储存评论
+        lrcListMusic:[]
 
     },
 
+     //获取评论
+     lrcShowList(){
+        //获取id
+        let musicID=this.data.musicID
+        // console.log(musicID)
+        //评论url 
+        let url='https://autumnfish.cn/comment/music?id='+musicID+'&limit'
+        wx.request({
+          url,
+          success:(res)=>{
+            console.log(res)
+              // console.log(res.data.comments)
+              let list=res.data
+              this.setData({
+                lrcListMusic:list
+              })
+          }
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
+    onLoad(options) {
+         // 通过options获取id
+        let mid=options.id
+        console.log(mid)
+         this.setData({
+            musicID:mid
+         })
 
+        this.lrcShowList()
     },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-
+        
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        
     },
 
     /**

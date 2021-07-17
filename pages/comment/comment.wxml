@@ -1,5 +1,5 @@
 <!--pages/comment/comment.wxml-->
-<view class="comment_M">评论(109924)</view>
+<view class="comment_M">评论({{lrcListMusic.total}})</view>
 <view class="comment">
     <view class="comment_nav">
         <view>评论区</view>
@@ -9,20 +9,21 @@
             <view>| 最新</view>
         </view>
     </view>
-    <view class="comment_content">
-    <view class="comment_pic">
-        <image src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fup.enterdesk.com%2Fedpic%2Fc8%2Fdd%2Fb9%2Fc8ddb934a69d90216f1b406cf3975475.jpg&refer=http%3A%2F%2Fup.enterdesk.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1629028187&t=e003c90429d2f8f67acbf5081e353a6f"></image>
-    </view>
+    <view class="comment_content" wx:for="{{lrcListMusic.comments}}" wx:key="commentId">
+        <view class="comment_pic">
+            <image src="{{item.user.avatarUrl}}"></image>
+        </view>
         <view class="comment_total">
             <view class="comment_top">
-                <view class="comment_tex">海绵宝宝</view>
+                <view class="comment_tex">{{item.user.nickname}}</view>
                 <view class="comment_img">9999
                     <image src="/images/nice.png"></image>
                 </view>
             </view>
             <view class="comment_day">06月29日</view>
             <view class="comment_btn">
-                <view>安和桥安和桥安和桥安和桥安和桥安和桥安和桥安和桥安和桥安和桥安和桥安和桥安和桥安和桥安和桥</view>
+            <!-- {{item.content}} -->
+                <view>{{item.content}}</view>
                 <view class="comment_reply">43条回复＞
                 </view>
             </view>
