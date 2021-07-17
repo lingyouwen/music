@@ -36,6 +36,7 @@
     <image bindtap="listSong"src="/images/lastSong.png"></image>
     <image bindtap="playdata" src="/images/{{data=='pause' ? 'pause.png':'play.png'}}"></image>
     <image bindtap="nextSong" src="/images/nextSong.png"></image>
+    <image bindtap="comment" class="btnbox-img" src="/images/comment.png"></image>
 </view>
 
 

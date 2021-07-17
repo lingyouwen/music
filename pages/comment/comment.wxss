@@ -1,0 +1,89 @@
+/* pages/comment/comment.wxss */
+.comment_M{
+    font-size: 36rpx;
+    text-align: center;
+}
+.comment{
+    width: 100%;
+    /* background-color: pink; */
+}
+.comment .comment_nav{
+    display: flex;
+    flex-flow:  row nowrap;
+    justify-content: space-between;
+    font-size: 26rpx;
+    padding: 10rpx 10rpx;
+}
+.comment .comment_nav view{
+    display: flex;
+    margin-left: 20rpx;
+}
+.comment_content{
+    width: 100%;
+    height: 300rpx;
+    /* border: 1px solid black; */
+}
+/* .comment_content .comment_pic{
+    width: 100rpx;
+    height: 100rpx;
+} */
+.comment_content{
+    display: flex;
+}
+.comment_pic image{
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    margin: 10rpx 10rpx;
+}
+.comment_top{
+    display: flex;
+    flex-flow:  row nowrap;
+    justify-content: space-between;
+}
+.comment_top .comment_tex{
+    float: left;
+    font-size: 30rpx;
+    color: #888;
+    margin: 10rpx 10rpx;
+}
+.comment_top .comment_img{
+    font-size: 24rpx;
+    color: #888;
+    margin-top: 16rpx;
+    margin-right: 8rpx;
+}
+.comment_top .comment_img image{
+    float: right;
+    width: 40rpx;
+    height: 30rpx;
+}
+.comment .comment_total{
+    width: 650rpx;
+}
+.comment_total .comment_day{
+    font-size: 24rpx;
+    color: #888;
+    margin: -13rpx 10rpx;
+}
+.comment_total .comment_btn{
+    width: 646rpx;
+}
+.comment_total .comment_btn :nth-child(1){
+    font-size: 30rpx;
+    margin-top: 30rpx;
+    margin-left: 10rpx; 
+}
+.comment_btn{
+    position: relative;
+}
+.comment_btn .comment_reply{
+    font-size: 24rpx;
+    margin-top: 10rpx;
+    margin-left: 10rpx; 
+    color: #71A5E5;
+}
+.comment_total .comment_bor{
+    border-bottom: 0.5rpx solid rgb(241, 241, 241);
+    margin-top: 30rpx;
+}

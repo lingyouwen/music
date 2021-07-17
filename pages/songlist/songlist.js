@@ -28,7 +28,7 @@ Page({
     //点击跳转播放页面
     jumpPlay(event){
         // console.log(event.currentTarget.dataset.id)
-        console.log(this.data.Idlist)
+        // console.log(this.data.Idlist)
         let idlist=this.data.Idlist
         //id传到另一个页面
         let mid=event.currentTarget.dataset.id
