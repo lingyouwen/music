@@ -170,7 +170,7 @@ Page({
       if(word!=""){
         let music_sum=this.data.musicSum 
         //每次新增2首歌曲
-        music_sum+=2
+        music_sum+=3
       this.setData({
         musicSum:music_sum
       })

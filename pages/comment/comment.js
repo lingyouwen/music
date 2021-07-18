@@ -1,4 +1,5 @@
 // pages/comment/comment.js
+const moment = require('moment')
 Page({
 
     /**
@@ -8,7 +9,8 @@ Page({
         //歌曲id
         musicID:'',
         //储存评论
-        lrcListMusic:[]
+        lrcListMusic:[],
+        time_id:''
 
     },
 
@@ -24,9 +26,21 @@ Page({
           success:(res)=>{
             console.log(res)
               // console.log(res.data.comments)
+              // console.log(res.data.comments[0].time)
+              let data=res.data.comments
+              for(let i=0;i<data.length;i++){
+                // let time=data[i].time
+                 //日期格式
+               let dataTime=moment(data[i].time).format("YYYY年MM月DD日 HH:mm:ss")
+               // console.log(dataTime)
+                this.setData({
+                  time_id:dataTime
+                })
+            }
               let list=res.data
+              
               this.setData({
-                lrcListMusic:list
+                lrcListMusic:list,
               })
           }
         })

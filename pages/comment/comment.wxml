@@ -4,11 +4,12 @@
     <view class="comment_nav">
         <view>评论区</view>
         <view>
-            <view>推荐</view>
-            <view>| 最热</view>
-            <view>| 最新</view>
+            <!-- <view>推荐</view> -->
+            <view>  最热</view>
+            <view class="comment_col">| 最新</view>
         </view>
     </view>
+    <!-- 评论内容 -->
     <view class="comment_content" wx:for="{{lrcListMusic.comments}}" wx:key="commentId">
         <view class="comment_pic">
             <image src="{{item.user.avatarUrl}}"></image>
@@ -16,11 +17,12 @@
         <view class="comment_total">
             <view class="comment_top">
                 <view class="comment_tex">{{item.user.nickname}}</view>
-                <view class="comment_img">9999
+                <!-- 点赞 -->
+                <view class="comment_img">
                     <image src="/images/nice.png"></image>
                 </view>
             </view>
-            <view class="comment_day">06月29日</view>
+            <text class="comment_day" wx:for="{{time_id}}" wx:key="*this">{{item}}</text>
             <view class="comment_btn">
             <!-- {{item.content}} -->
                 <view>{{item.content}}</view>
