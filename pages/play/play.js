@@ -43,7 +43,7 @@ Page({
         //id传到另一个页面
         // let mid=event.currentTarget.id
         wx.navigateTo({
-            url: '/pages/comment/comment?id='+music_id
+            url: '/pages/hotComment/hotComment?id='+music_id
           })
     },
     //切换模式 图标更改
@@ -381,7 +381,11 @@ Page({
      * 生命周期函数--监听页面卸载
      */
     onUnload: function () {
-
+    //     let pages = getCurrentPages().length - 1;
+    //     console.log('songlist：'+pages);
+    //     wx.navigateBack({
+    //     delta: pages
+    // })
     },
 
     /**

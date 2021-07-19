@@ -2,10 +2,10 @@
 <!-- 轮播图 -->
 <view>
   <swiper class="banner" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" indicator-active-color="#c20c0c" indicator-color="#fff">
-        <block wx:for="{{background}}" wx:key="*this">
+        <block wx:for="{{background}}" wx:key="targetId">
           <swiper-item>
             <!-- <view class="swiper-item"></view> -->
-            <image src="{{item}}"></image>
+            <image src="{{item.imageUrl}}"></image>
           </swiper-item>
         </block>
       </swiper>

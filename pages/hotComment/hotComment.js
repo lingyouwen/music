@@ -1,4 +1,4 @@
-// pages/comment/comment.js
+// pages/hotcomment/hotcomment.js
 // const moment = require('moment')
 Page({
 
@@ -7,35 +7,35 @@ Page({
      */
     data: {
         //歌曲id
-        musicID:'',
+        hotMusicID:'',
         //储存评论
-        lrcListMusic:[]
+        hotLrcListMusic:[]
 
     },
 
-    hotComments(){
-      let music_id=this.data.musicID
+    newComments(){
+        let music_id=this.data.hotMusicID
         //id传到另一个页面
         // let mid=event.currentTarget.id
         wx.redirectTo({
-            url: '/pages/hotComment/hotComment?id='+music_id
+            url: '/pages/comment/comment?id='+music_id
           })
     },
 
      //获取评论
      lrcShowList(){
         //获取id
-        let musicID=this.data.musicID
+        let hotMusicID=this.data.hotMusicID
         // console.log(musicID)
         //评论url 
-        let url='https://autumnfish.cn/comment/music?id='+musicID+'&limit'
+        let url='https://autumnfish.cn/comment/music?id='+hotMusicID+'&limit'
         wx.request({
           url,
           success:(res)=>{
-              // console.log(res.data.hotComments)
+            //   console.log(res.data)
               let list=res.data
               this.setData({
-                lrcListMusic:list,
+                hotLrcListMusic:list,
               })
           }
         })
@@ -44,12 +44,12 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-         // 通过options获取id
+        // 通过options获取id
         let mid=options.id
         console.log(mid)
-         this.setData({
-            musicID:mid
-         })
+          this.setData({
+            hotMusicID:mid
+          })
 
         this.lrcShowList()
     },
@@ -86,17 +86,17 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-      {
-        wx.showNavigationBarLoading() //在标题栏中显示加载
-                        
-        //模拟加载
-        setTimeout(()=>
         {
-        // complete
-        wx.hideNavigationBarLoading() //完成停止加载
-        wx.stopPullDownRefresh() //停止下拉刷新
-        },1500)      
-    }
+            wx.showNavigationBarLoading() //在标题栏中显示加载
+                            
+            //模拟加载
+            setTimeout(()=>
+            {
+            // complete
+            wx.hideNavigationBarLoading() //完成停止加载
+            wx.stopPullDownRefresh() //停止下拉刷新
+            },1500)      
+        }
     },
 
     /**

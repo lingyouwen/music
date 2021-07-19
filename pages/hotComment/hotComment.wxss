@@ -1,4 +1,4 @@
-/* pages/comment/comment.wxss */
+/* pages/hotcomment/hotcomment.wxss */
 .comment_M{
     font-size: 36rpx;
     text-align: center;

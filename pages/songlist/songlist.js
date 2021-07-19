@@ -4,12 +4,10 @@ Page({
      * 页面的初始数据
      */
     data: {
-        background: ['http://p1.music.126.net/bIiSEZZ5LzUpBH7855pWlQ==/109951166121360496.jpg?imageView&quality=89', 
-        'http://p1.music.126.net/Es7b5qCSAHauaOQ40QSuSQ==/109951166121754768.jpg?imageView&quality=89',
-        'http://p1.music.126.net/MQ3q6pcYkx6jrF3GOMgI-g==/109951166121753124.jpg?imageView&quality=89', 
-        'http://p1.music.126.net/JOaT-B9TcLnDVkWtEvqVnQ==/109951166121627798.jpg?imageView&quality=89'],
-        //歌曲遍历
-        musicList:[],
+      //轮播图
+      background: [],
+      //歌曲遍历
+      musicList:[],
        //输入框的值
        word:"",
        //封面的url列表
@@ -32,6 +30,9 @@ Page({
         let idlist=this.data.Idlist
         //id传到另一个页面
         let mid=event.currentTarget.dataset.id
+        // wx.redirectTo({
+        //   url: '/pages/play/play?id='+mid+'&idlist='+idlist,
+        // })
         wx.navigateTo({
           url: '/pages/play/play?id='+mid+'&idlist='+idlist,
         })
@@ -103,13 +104,26 @@ Page({
           }
         })
     },
-
+    //轮播图获取方法
+    banners(){
+      let url='https://autumnfish.cn/banner'
+      wx.request({
+        url,
+        success:(res)=>{
+          // console.log(res.data.banners)
+          let banners=res.data.banners
+          this.setData({
+            background:banners
+          })
+        }
+      })
+    },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+      this.banners()
     },
 
     /**

@@ -1,7 +1,7 @@
 /* pages/songlist/songlist.wxss */
 /* 轮播图 */
 .banner{
-  height: 280rpx;
+  height: 320rpx;
 }
 .banner image{
   width: 100%;

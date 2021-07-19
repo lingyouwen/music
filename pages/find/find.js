@@ -17,7 +17,7 @@ Page({
         wx.request({
           url: 'https://autumnfish.cn/personalized',
           success:(res)=>{
-              console.log(res.data.result)
+              // console.log(res.data.result)
               let result=res.data.result
               if(sum>result.length){
                   wx.showLoading({

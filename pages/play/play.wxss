@@ -31,11 +31,11 @@
 .bar image{
     position: absolute;
     top: 10rpx;
-    left: 50%;
+    left: 46%;
     width: 160rpx;
     height: 223rpx;
     z-index: 99;
-    transform: rotate(-2deg);
+    transform: rotate(-6deg);
     transform-origin:10px 0;
     /* 旋转过渡动画 */
     transition:transform 0.5s linear;
@@ -43,7 +43,7 @@
 .play_bar image{
     position: absolute;
     top: 10rpx;
-    left: 50%;
+    left: 46%;
     width: 160rpx;
     height: 223rpx;
     z-index: 99;
