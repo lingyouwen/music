@@ -1,12 +1,12 @@
 {
   "pages":[
-    
     "pages/songlist/songlist",
     "pages/my/my",
     "pages/play/play",
     "pages/find/find",
     "pages/comment/comment",
     "pages/hotComment/hotComment"
+ 
 
     
     

@@ -7,10 +7,10 @@
 <!-- 轮播页面 -->
 <swiper class="main">
     <view class="{{playBar=='bar' ? 'bar' : 'play_bar'}}">
-        <image src="/images/player_bar.png"></image>
+        <image lazy-load="true" src="/images/player_bar.png"></image>
     </view>
     <swiper-item class="item imgItem">
-        <image class="{{data=='pause' ? 'clear' : ''}}"
+        <image lazy-load="true" class="{{data=='pause' ? 'clear' : ''}}"
         src="{{imgUrl}}"></image>
         <!-- <image class="musicPic2" src="/images/disc.png"></image> -->
     </swiper-item>
@@ -32,11 +32,11 @@
 </view>
 <!-- 按钮 -->
 <view class="btnbox">
-    <image class="btnbox-img" bindtap="changemode" src="/images/{{mode=='loop1' ? 'loop1.png':'loop.png'}}"></image>
-    <image bindtap="listSong"src="/images/lastSong.png"></image>
-    <image bindtap="playdata" src="/images/{{data=='pause' ? 'pause.png':'play.png'}}"></image>
-    <image bindtap="nextSong" src="/images/nextSong.png"></image>
-    <image bindtap="comment" class="btnbox-img" src="/images/comment.png"></image>
+    <image lazy-load="true" class="btnbox-img" bindtap="changemode" src="/images/{{mode=='loop1' ? 'loop1.png':'loop.png'}}"></image>
+    <image lazy-load="true" bindtap="listSong"src="/images/lastSong.png"></image>
+    <image lazy-load="true" bindtap="playdata" src="/images/{{data=='pause' ? 'pause.png':'play.png'}}"></image>
+    <image lazy-load="true" bindtap="nextSong" src="/images/nextSong.png"></image>
+    <image lazy-load="true" bindtap="comment" class="btnbox-img" src="/images/comment.png"></image>
 </view>
 
 

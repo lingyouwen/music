@@ -7,21 +7,21 @@
         <view>评论区</view>
         <view>
             <!-- <view>推荐</view> -->
-            <view bindtap="hotComments">  最热</view>
+            <view bindtap="hotComments"> 最热</view>
             <view class="comment_col">| 最新</view>
         </view>
     </view>
     <!-- 评论内容 -->
     <view class="comment_content" wx:for="{{lrcListMusic.comments}}" wx:key="commentId">
         <view class="comment_pic">
-            <image src="{{item.user.avatarUrl}}"></image>
+            <image lazy-load="true" src="{{item.user.avatarUrl}}"></image>
         </view>
         <view class="comment_total">
             <view class="comment_top">
                 <view class="comment_tex">{{item.user.nickname}}</view>
                 <!-- 点赞 -->
                 <view class="comment_img">{{item.likedCount}}
-                    <image src="/images/nice.png"></image>
+                    <image lazy-load="true" src="/images/nice.png"></image>
                 </view>
             </view>
             <text class="comment_day">{{dataTime.dateFormat(item.time)}}</text>

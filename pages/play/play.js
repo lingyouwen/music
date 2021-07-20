@@ -277,6 +277,11 @@ Page({
         
         this.lrcShow()
         this.musicShow()
+
+        wx.setStorage({
+            key:"key",
+            data:"value"
+          })
     },
     //歌曲详情
     musicShow(){

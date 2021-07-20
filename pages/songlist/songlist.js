@@ -124,6 +124,10 @@ Page({
      */
     onLoad: function (options) {
       this.banners()
+      wx.setStorage({
+        key:"key",
+        data:"value"
+      })
     },
 
     /**
@@ -215,13 +219,14 @@ Page({
                 })
             }
             //进行数组清空，防止下次搜索还是显示之前的数据
-            this.setData({
-              ImgUrl_list:[]
-            })
+            // this.setData({
+            //   ImgUrl_list:[]
+            // })
             //调用找封面
             this.getMusicImge(Idlist,0,Idlist.length) 
         }
       })
+      
       //延迟动画
       // setTimeout(()=>{
         
@@ -239,6 +244,7 @@ Page({
        },1000)
       
       }
+      
     },
 
     /**

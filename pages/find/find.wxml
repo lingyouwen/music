@@ -15,7 +15,7 @@
     <view class="hotlist clearfix">
         <block wx:for="{{hotlist}}" wx:key="id">
             <view class="hotitem">
-                <image src="{{item.picUrl}}"></image>
+                <image lazy-load="true" src="{{item.picUrl}}"></image>
                 <text>{{item.name}}</text>
             </view>
         </block>
@@ -25,7 +25,7 @@
     <view class="titlebox">
         <view class="txt">新歌推荐</view>
         <view class="txt_r" bindtap="changeNew">更多
-            <image src="/images/da.png"></image>
+            <image lazy-load="true" src="/images/da.png"></image>
         </view>
     </view>
     <view class="hotlist clearfix">

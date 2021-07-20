@@ -5,7 +5,7 @@
         <block wx:for="{{background}}" wx:key="targetId">
           <swiper-item>
             <!-- <view class="swiper-item"></view> -->
-            <image src="{{item.imageUrl}}"></image>
+            <image mode="scaleToFill" lazy-load="true" src="{{item.imageUrl}}"></image>
           </swiper-item>
         </block>
       </swiper>
@@ -14,7 +14,7 @@
 <view class="search">
         <form>
             <input placeholder-style="font-size: 26rpx" placeholder="发现属于你的音乐" bindinput="keychange" type="text" confirm-type="search" />
-            <image bindtap="search" src="../../images/search.png"></image>
+            <image lazy-load="true" bindtap="search" src="../../images/search.png"></image>
         </form>
 </view>
 <!-- 列表 wx:for-index="i"匹配当前下表-->
@@ -22,7 +22,7 @@
   <view class="list-wrap">
     <view class="list-i">
     <!-- 对应下标找到封面 -->
-    <image src="{{ImgUrl_list[i]}}"></image>
+    <image mode="scaleToFill" lazy-load="true" src="{{ImgUrl_list[i]}}"></image>
     </view>
     <view class="list-c">
       <view class="musicName">{{item.name}}</view>
@@ -30,7 +30,7 @@
     </view>
     <!-- {{item.id}} 每个歌曲绑定自己的id -->
     <view class="list-r" bindtap="jumpPlay" data-id="{{item.id}}">
-    <image src="/images/stop.png"></image>
+    <image mode="scaleToFill" lazy-load="true" src="/images/stop.png"></image>
     </view>
   </view>
 

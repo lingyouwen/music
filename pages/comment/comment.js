@@ -9,7 +9,9 @@ Page({
         //歌曲id
         musicID:'',
         //储存评论
-        lrcListMusic:[]
+        lrcListMusic:[],
+        //评论数量
+        sum:20
 
     },
 
@@ -26,9 +28,10 @@ Page({
      lrcShowList(){
         //获取id
         let musicID=this.data.musicID
+        let sum=this.data.sum
         // console.log(musicID)
         //评论url 
-        let url='https://autumnfish.cn/comment/music?id='+musicID+'&limit'
+        let url='https://autumnfish.cn/comment/music?id='+musicID+'&limit='+sum
         wx.request({
           url,
           success:(res)=>{
@@ -103,7 +106,19 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-
+      //增加loading效果
+      wx.showLoading({
+        title: '加载中...',
+      })
+       //加载更多评论
+       let music_comments=this.data.sum
+       music_comments+=10
+       this.setData({
+         sum:music_comments
+       })
+      this.lrcShowList(music_comments)
+      //结束loading动画
+      wx.hideLoading()
     },
 
     /**
