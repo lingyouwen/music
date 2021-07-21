@@ -1,1 +1,58 @@
 /* pages/my/my.wxss */
+.my-whole{
+    width: 750rpx;
+    height: 1334rpx;
+    background-color: #f1f1f1;
+}
+.my{
+    display: flex;
+    width: 750rpx;
+    /* background-color: pink; */
+}
+.my .my-img image{
+    margin: 20rpx;
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 50%;
+}
+.my text{
+    margin-top: 20rpx;
+}
+.my .my-img2{
+    position: relative;
+}
+.my .my-img2 image{
+    position: absolute;
+    top: 15px;
+    right: -210px;
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.my-card{
+    display: flex;
+    flex-wrap:wrap;
+    width: 700rpx;
+    height: 420rpx;
+    background-color: #fff;
+    border-radius: 10rpx;
+    margin-left:25rpx;
+    box-shadow: 0rpx 0rpx 20rpx #c7c7c7;
+}
+.my-icon{
+    margin-top: 5rpx;
+    width: 175rpx;
+    height: 140rpx;
+    /* background-color: pink; */
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+.my-icon image{
+    width: 80rpx;
+    height: 80rpx;
+}
+.my-icon view{
+    font-size: 12px;
+    color: #888;
+}

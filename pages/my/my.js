@@ -5,7 +5,55 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        icon:[
+            {
+                imgUrl:'../../images/icon/music-icon.png',
+                text:'本地/下载'
+            },
+            {
+                imgUrl:'../../images/icon/music-icon.png',
+                text:'云盘'
+            },
+            {
+                imgUrl:'../../images/icon/music-icon.png',
+                text:'已购'
+            },
+            {
+                imgUrl:'../../images/icon/music-icon.png',
+                text:'最近播放'
+            },
+            {
+                imgUrl:'../../images/icon/music-icon.png',
+                text:'我的好友'
+            },
+            {
+                imgUrl:'../../images/icon/music-icon.png',
+                text:'收藏和赞'
+            },
+            {
+                imgUrl:'../../images/icon/music-icon.png',
+                text:'我的博客'
+            },
+            {
+                imgUrl:'../../images/icon/music-icon.png',
+                text:'助眠解压'
+            },
+            {
+                imgUrl:'../../images/icon/music-icon.png',
+                text:'推歌精选'
+            },
+            {
+                imgUrl:'../../images/icon/music-icon.png',
+                text:'广播电台'
+            },
+            {
+                imgUrl:'../../images/icon/music-icon.png',
+                text:'小冰电台'
+            }, {
+                imgUrl:'../../images/icon/music-icon.png',
+                text:'音乐应用'
+            }
+        ]
     },
 
     /**

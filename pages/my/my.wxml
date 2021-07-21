@@ -1,2 +1,19 @@
 <!--pages/my/my.wxml-->
-<text>pages/my/my.wxml</text>
+<view class="my-whole">
+    <view class="my">
+        <view class="my-img">
+            <image src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic4.zhimg.com%2Fv2-b6eae3250bb62fadb3d2527f466cf033_b.jpg&refer=http%3A%2F%2Fpic4.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1629371340&t=7b933fc4279f3f5869ec81ca737528b6"></image>
+        </view>
+            <text>New一南</text>
+        <view class="my-img2">
+            <image src="/images/da.png"></image>
+        </view>
+    </view>
+    <view class="my-card">
+        <view class="my-icon" wx:for="{{icon}}" wx:key="text">
+            <image src="{{item.imgUrl}}"></image>
+            <view>{{item.text}}</view>
+        </view>
+    </view>
+    
+</view>
